@@ -9,11 +9,13 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
-public class Tube implements Geometry {
+public class Tube implements Geometry
+{
     final Ray axisRay;
     final double radius;
 
-    public Tube(Ray axisRay, double radius) {
+    public Tube(Ray axisRay, double radius)
+    {
         this.axisRay = axisRay;
         this.radius = radius;
     }

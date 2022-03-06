@@ -22,13 +22,18 @@ public class Plane implements Geometry {
         this._normal = normal.normalize();
     }
 
-    public Plane(Point vertex, Point vertex1, Point vertex2) {
-        this._q0 = vertex;
-        Vector U = vertex1.subtract(vertex);
-        Vector V = vertex2.subtract(vertex);
+    public Plane(Point p1, Point p2, Point p3) {
+        this._q0 = p1;
+        //        //TODO check direction of vectors
+//        Vector U = p1.subtract(p2);
+//        Vector V = p3.subtract(p2);
+
+        Vector U = p2.subtract(p1);
+        Vector V = p3.subtract(p1);
+
         Vector N = U.crossProduct(V);
-        N.normalize();
-        this._normal = N;
+        //right hand rule
+        this._normal = N.normalize();
     }
 
     public Vector getNormal() {
