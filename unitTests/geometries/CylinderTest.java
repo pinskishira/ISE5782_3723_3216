@@ -10,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CylinderTest {
 
     @Test
-    void testGetNormal() {
+    void testGetNormal()
+    {
 
         // ============ Equivalence Partitions Tests ==============
         // TC01: There is a simple single test here

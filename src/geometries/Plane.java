@@ -1,5 +1,8 @@
 package geometries;
 
+import primitives.Point;
+import primitives.Vector;
+
 import java.util.Objects;
 
 public class Plane implements Geometry {
