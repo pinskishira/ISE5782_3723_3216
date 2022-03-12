@@ -1,25 +1,27 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package geometries;
 
-import primitives.Point;
-import primitives.Vector;
+import java.util.Objects;
 
 public class Plane implements Geometry {
-    final Point _q0;
-    final Vector _normal;
+    final private Point _q0;
+    final private Vector _normal;
 
-    public Point getQ0() {
-        return this._q0;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Plane plane = (Plane) o;
+        return _q0.equals(plane._q0) && _normal.equals(plane._normal);
     }
 
-    /** @deprecated */
+    @Override
+    public int hashCode() {
+        return Objects.hash(_q0, _normal);
+    }
+
     public Plane(Point q0, Vector normal) {
-        this._q0 = q0;
-        this._normal = normal.normalize();
+        _q0 = q0;
+        _normal = normal;
     }
 
     public Plane(Point p1, Point p2, Point p3) {
@@ -30,21 +32,31 @@ public class Plane implements Geometry {
 
         Vector U = p2.subtract(p1);
         Vector V = p3.subtract(p1);
-
         Vector N = U.crossProduct(V);
         //right hand rule
         this._normal = N.normalize();
     }
 
+    public Point getQ0() {
+        return _q0;
+    }
+
+    /**
+     *  getter for _normal Vector
+     * @return the infamous normal
+     */
     public Vector getNormal() {
-        return this._normal;
+        return _normal;
     }
 
+    /**
+     *  implementation of {@link Geometry#getNormal(Point)}
+     *
+     * @param point external Point
+     * @return normal to plane
+     */
+    @Override
     public Vector getNormal(Point point) {
-        return this.getNormal();
-    }
-
-    public String toString() {
-        return "Plane{_q0=" + this._q0 + ", _normal=" + this._normal + "}";
+        return getNormal();
     }
 }
