@@ -1,5 +1,8 @@
 package geometries;
 
+import primitives.Point;
+import primitives.Vector;
+
 public class Sphere implements Geometry{
     final Point _center;
     final double radius;

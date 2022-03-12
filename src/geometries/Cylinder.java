@@ -1,5 +1,9 @@
 package geometries;
 
+import primitives.Point;
+import primitives.Ray;
+import primitives.Vector;
+
 public class Cylinder extends Tube
 {
     double height;
