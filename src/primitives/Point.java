@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Point {
     //package friendly
-   protected final Double3 _xyz;
+    protected final Double3 _xyz;
 
     @Override
     public String toString() {
@@ -38,15 +38,15 @@ public class Point {
      */
     public double distanceSquared(Point other)
     {
-         double x1 = _xyz._d1;
-         double y1 = _xyz._d2;
-         double z1 = _xyz._d3;
+        double x1 = _xyz._d1;
+        double y1 = _xyz._d2;
+        double z1 = _xyz._d3;
 
-         double x2 = other._xyz._d1;
-         double y2 = other._xyz._d2;
-         double z2 = other._xyz._d3;
+        double x2 = other._xyz._d1;
+        double y2 = other._xyz._d2;
+        double z2 = other._xyz._d3;
 
-         return ((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)  + (z2 - z1 ) * (z2 - z1 ));
+        return ((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)  + (z2 - z1 ) * (z2 - z1 ));
     }
 
     @Override
@@ -79,6 +79,43 @@ public class Point {
     }
 
     public Vector subtract(Point p1) {
-        return new Vector(_xyz.subtract(p1._xyz));
+        if (p1.equals(this)) {
+            throw new IllegalArgumentException("cannot create Vector to Point(0,0,0)");
+        }
+        return  new Vector(
+                _xyz._d1 - p1.get_x(),
+                _xyz._d2 - p1.get_y(),
+                _xyz._d3 - p1.get_z()
+        );
+        //return new Vector(p1._xyz.subtract(_xyz));
+    }
+
+    /**
+     * Point x value getter
+     *
+     * @return x coordinate value
+     */
+    public double get_x()
+    {
+        return _xyz._d1;
+    }
+    /**
+     * Point y value getter
+     *
+     * @return y coordinate value
+     */
+    public double get_y()
+    {
+        return _xyz._d2;
+    }
+    /**
+     * Point z value getter
+     *
+     * @return z coordinate value
+     */
+    public double get_z()
+    {
+        return _xyz._d3;
     }
 }
+

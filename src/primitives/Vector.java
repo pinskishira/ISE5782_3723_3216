@@ -66,10 +66,10 @@ public class Vector extends Point {
         double by = v3._xyz._d2;
         double bz = v3._xyz._d3;
 
-       double cx = ay * bz - az * by;
-          double  cy = az * bx - ax * bz;
-           double cz = ax * by - ay * bx;
-           return  new Vector(cx, cy, cz);
+        double cx = ay * bz - az * by;
+        double  cy = az * bx - ax * bz;
+        double cz = ax * by - ay * bx;
+        return  new Vector(cx, cy, cz);
     }
 
     /**
@@ -90,3 +90,4 @@ public class Vector extends Point {
 
 
 }
+

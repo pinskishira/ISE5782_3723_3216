@@ -1,9 +1,13 @@
 package geometries;
 
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
+
+import java.util.List;
 
 public interface Geometry
 {
-    Vector getNormal(Point point);
+    public Vector getNormal(Point p);
+    List<Point> findIntersectionpoints(Ray ray);
 }

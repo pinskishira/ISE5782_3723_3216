@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import static java.lang.System.out;
 import static org.junit.jupiter.api.Assertions.*;
 import static primitives.Util.isZero;
+import primitives.Vector;
+import primitives.Point;
 
 class VectorTest {
     Vector v1 = new Vector(1, 2, 3);
@@ -17,9 +19,9 @@ class VectorTest {
                 IllegalArgumentException.class,
                 ()->{
                     new Vector(0, 0, 0.0000000000000000000000034);
-                    },
-                    "Vector(0,0,0) shoud have thrown Exception"
-       );
+                },
+                "Vector(0,0,0) shoud have thrown Exception"
+        );
     }
 
     @Test
@@ -59,10 +61,10 @@ class VectorTest {
      */
     void testCrossProduct1() {
         // =============== Boundary Values Test ==================
-       assertThrows(
-               IllegalArgumentException.class,
-               () -> { v1.crossProduct(v2);}
-               ,"ERROR: crossProduct() for parallel vectors does not throw an exceptionn");
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> { v1.crossProduct(v2);}
+                ,"ERROR: crossProduct() for parallel vectors does not throw an exceptionn");
     }
 
     /**

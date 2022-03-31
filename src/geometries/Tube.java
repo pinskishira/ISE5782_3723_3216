@@ -1,10 +1,10 @@
 package geometries;
 
-import primitives.Double3;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.List;
 
 public class Tube implements Geometry
 {
@@ -45,4 +45,10 @@ public class Tube implements Geometry
         return N.normalize();
     }
 
+    @Override
+    public List<Point> findIntersectionpoints(Ray ray) {
+        return null;
+    }
+
 }
+

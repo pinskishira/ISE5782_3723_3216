@@ -1,11 +1,16 @@
 package geometries;
 
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
 
+import java.util.List;
 import java.util.Objects;
 
-public class Plane implements Geometry {
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
+
+public class Plane implements Geometry, Intersectable {
     final private Point _q0;
     final private Vector _normal;
 
@@ -62,4 +67,30 @@ public class Plane implements Geometry {
     public Vector getNormal(Point point) {
         return getNormal();
     }
+
+
+    @Override
+    public List<Point> findIntersectionpoints(Ray ray) {
+        Point P0=ray.getP0();
+        Vector v=ray.getDirection();
+        Vector n=_normal;
+        //denominator
+        double nv = n.dotProduct(v);
+
+        if (isZero(nv)) {
+            return null;
+        }
+        Vector P0_Q=_q0.subtract(P0);
+        double t=alignZero(n.dotProduct(P0_Q)/nv);
+        //if t < 0 the array point to the opposite direction
+        // if t==0 the ray origin lay with ×”×§×¨×Ÿ ×œ× ×‘×›×™×•×•×Ÿ ×©×× ×—× ×• ×¨×•×¦×™×
+        if(t > 0)
+        {
+            Point P=P0.add(v.scale(t));
+            return List.of(P);
+        }
+
+        return null;
+    }
 }
+
