@@ -39,11 +39,11 @@ public class Sphere implements Geometry, Intersectable {
         if(_center.equals(ray.getP0()))
             p0 = new Point(ray.getP0().get_x() + 0.1111111115,ray.getP0().get_y(), ray.getP0().get_z());
         //now we need new ray because of we add epsilon to _POO
-        Ray myRay = new Ray(p0,ray.getDirection());
+        Ray myRay = new Ray(p0,ray.getDir());
         //u = o - p0
         Vector u = _center.subtract(p0);
         //t_m = v * u
-        double t_m = myRay.getDirection().dotProduct(u);
+        double t_m = myRay.getDir().dotProduct(u);
         //d = sqrt(|u|^2 - t_m^2)
         double d = Math.sqrt(u.lengthSquared() - t_m*t_m);
         //there are no intersections
@@ -62,11 +62,11 @@ public class Sphere implements Geometry, Intersectable {
         //only if t1>0
         if(!isZero(t1) && t1>0)
             //p1 = p0 + t1*v
-            p1 = myRay.getP0().add(myRay.getDirection().scale(t1));
+            p1 = myRay.getP0().add(myRay.getDir().scale(t1));
         //only if t2>0
         if(!isZero(t2) && t2>0)
             //p2 = p0 + t2*v
-            p2 = myRay.getP0().add(myRay.getDirection().scale(t2));
+            p2 = myRay.getP0().add(myRay.getDir().scale(t2));
         //if it is no intersections points
         if(p1 == null && p2 == null)
             return null;

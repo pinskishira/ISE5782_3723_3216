@@ -5,6 +5,7 @@
 // Mini Project in Software Engineering
 // Shira Pinski 214103723 pinskishira@gmail.com
 // Ayelet Dadon 324863216 ayeletnomi6@gmail.com
+
 import primitives.Vector;
 
 public final class Main {
