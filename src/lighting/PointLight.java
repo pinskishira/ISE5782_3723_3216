@@ -137,7 +137,7 @@ public class PointLight extends Light implements LightSource {
 
         for (int counter = 0; counter < amount; counter++) {
             Point newPoint = new Point(this.position.get_x(),this.position.get_y(),this.position.get_z());
-            // randomly coose cosTheta and sinTheta in the range (-1,1)
+            // randomly choose cosTheta and sinTheta in the range (-1,1)
             cosTheta = 2 * RND.nextDouble() - 1;
             sinTheta = Math.sqrt(1d - cosTheta * cosTheta);
 
